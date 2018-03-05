@@ -22,8 +22,11 @@ bot = GSheetsBot(app, GOOGLE_CREDENTIALS_PATH, GOOGLE_SPREADSHEET_NAME, GOOGLE_S
 
 # Now define a custom reply function for the Facebook messenger interface to take into account the bot in the spreadsheet
 def reply(e: Event):
-    print('fuckkkkkkkkkkkkkkkkkkkkkkk')
-    e.reply({'text': 'hello world !'})
+    print(e.content['text'])
+    if e.content['text'] == 'hi':
+        e.reply({'text': 'hello world !'})
+    else:
+        e.reply({'text': 'sorry I didnt quite get that'})
     #responses = bot.reply_graph(e.sender_id, e.content['text'])
     #for response in responses:
     #    e.reply(response)
