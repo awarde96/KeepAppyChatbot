@@ -10,6 +10,18 @@ FACEBOOK_ROUTE = '/'
 GOOGLE_CREDENTIALS_PATH = 'chatbot-test-199f21257d88.json'
 GOOGLE_SPREADSHEET_NAME = 'chatbot1234'
 GOOGLE_SPREADSHEET_PAGE = 0
+STATE = 0
+SCORE = 0
+
+
+#"How are you feeling?"
+#"How well did you sleep last night?"
+#"How much time did you spend with family or friends?"
+#"How much water did you drink today?"
+#"How balanced was your diet today?"
+#"How active were you today?"
+#"How productive were you today?"
+#"How relaxed do you feel today?"
 
 # then create a Flask app
 app = Flask('bot')
@@ -24,9 +36,44 @@ bot = GSheetsBot(app, GOOGLE_CREDENTIALS_PATH, GOOGLE_SPREADSHEET_NAME, GOOGLE_S
 def reply(e: Event):
     print(e.content['text'])
     if e.content['text'] == 'hi':
-        e.reply({'text': 'hello world !'})
-    else:
-        e.reply({'text': 'sorry I didnt quite get that'})
+        e.reply({'text': 'Hello!'})
+        e.reply({'text': 'How are you feeling?'})
+        #STATE = STATE + 1
+        #print(STATE)
+    if e.content['text'] == 'good':
+        e.reply({'text': 'How well did you sleep last night'})
+    if e.content['text'] == 'not good':
+        e.reply({'text': 'How well did you sleep last night'})
+    if e.content['text'] == 'well':
+        e.reply({'text': 'How much time did you spend with family or friends?'})
+    if e.content['text'] == 'not well':
+        e.reply({'text': 'How much time did you spend with family or friends?'})
+    if e.content['text'] == 'a lot':
+        e.reply({'text': 'How much water did you drink today?'})
+    if e.content['text'] == 'not a lot':
+        e.reply({'text': 'How much water did you drink today?'})
+    if e.content['text'] == 'a lot of water':
+        e.reply({'text': 'How balanced was your diet today?'})
+    if e.content['text'] == 'not a lot of water':
+        e.reply({'text': 'How balanced was your diet today?'})
+    if e.content['text'] == 'balanced':
+        e.reply({'text': 'How active were you today?'})
+    if e.content['text'] == 'not balanced':
+        e.reply({'text': 'How active were you today?'})
+    if e.content['text'] == 'active':
+        e.reply({'text': 'You should stay hydrated.'})
+    if e.content['text'] == 'not active':
+        e.reply({'text': 'You dont seem to be very active, maybe you should try some yoga.'})
+
+    if e.content['text'] == 'help':
+        e.reply({'text': 'This is the keep appy chatbot. It will help you with youre mental health.'})
+        e.reply({'text': 'Say hi to initialise a chat and answer the questions given.'})
+
+
+    #if e.content['text'] == 'good':
+    #    e.reply({'text' : 'Excellent'})
+    #else:
+    #    e.reply({'text': 'sorry I didnt quite get that'})
     #responses = bot.reply_graph(e.sender_id, e.content['text'])
     #for response in responses:
     #    e.reply(response)
