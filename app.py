@@ -42,26 +42,33 @@ def reply(e: Event):
         #print(STATE)
     if e.content['text'] == 'good':
         e.reply({'text': 'How well did you sleep last night'})
+    if e.content['text'] == 'alright':
+        e.reply({'text': 'How well did you sleep last night'})
     if e.content['text'] == 'not good':
+        e.reply({'text': 'You should do something you enjoy'})
         e.reply({'text': 'How well did you sleep last night'})
     if e.content['text'] == 'well':
         e.reply({'text': 'How much time did you spend with family or friends?'})
     if e.content['text'] == 'not well':
+        e.reply({'text': 'You should try some herbal tea before bed'})
         e.reply({'text': 'How much time did you spend with family or friends?'})
     if e.content['text'] == 'a lot':
         e.reply({'text': 'How much water did you drink today?'})
     if e.content['text'] == 'not a lot':
+        e.reply({'text': 'You should meet up with friends and family'})
         e.reply({'text': 'How much water did you drink today?'})
     if e.content['text'] == 'a lot of water':
         e.reply({'text': 'How balanced was your diet today?'})
     if e.content['text'] == 'not a lot of water':
+        e.reply({'text': 'You should try to stay hydrated'})
         e.reply({'text': 'How balanced was your diet today?'})
     if e.content['text'] == 'balanced':
         e.reply({'text': 'How active were you today?'})
     if e.content['text'] == 'not balanced':
+        e.reply({'text': 'A balanced diet is very important'})
         e.reply({'text': 'How active were you today?'})
     if e.content['text'] == 'active':
-        e.reply({'text': 'You should stay hydrated.'})
+        e.reply({'text': 'Good you should stay that way.'})
     if e.content['text'] == 'not active':
         e.reply({'text': 'You dont seem to be very active, maybe you should try some yoga.'})
 
